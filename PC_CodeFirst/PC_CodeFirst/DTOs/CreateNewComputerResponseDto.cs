@@ -1,7 +1,8 @@
 ﻿namespace PC_CodeFirst.DTOs;
 
-public class UpdateComputerByIdDto
+public class CreateNewComputerResponseDto
 {
+    public int Id { get; set; }
     public string Name { get; set; } = string.Empty;
     public float Weight { get; set; }
     public int Warranty { get; set; }
