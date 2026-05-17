@@ -1,9 +1,11 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
+﻿namespace PC_CodeFirst.Entities;
 
-namespace PC_CodeFirst.Entities;
-
-[Table("ComponentManufacturers")]
 public class ComponentManufacturer
 {
-    
+    public int Id { get; set; }
+    public string Abbreviation { get; set; } = string.Empty;
+    public string FullName { get; set; } = string.Empty;
+    public DateTime FoundationDate { get; set; }
+
+    public ICollection<Component> Components { get; set; } = [];
 }

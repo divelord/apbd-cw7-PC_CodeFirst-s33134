@@ -8,5 +8,11 @@ public class ComponentManufacturerConfiguration : IEntityTypeConfiguration<Compo
 {
     public void Configure(EntityTypeBuilder<ComponentManufacturer> builder)
     {
+        builder.HasKey(x => x.Id);
+        builder.Property(x => x.Abbreviation).IsRequired().HasMaxLength(30);
+        builder.Property(x => x.FullName).IsRequired().HasMaxLength(300);
+        builder.Property(x => x.FoundationDate).IsRequired().HasColumnType("date");
+        
+        builder.ToTable("ComponentManufacturers");
     }
 }

@@ -1,6 +1,4 @@
-﻿using System.Runtime.Serialization;
-
-namespace PC_CodeFirst.Exceptions;
+﻿namespace PC_CodeFirst.Exceptions;
 
 public class NotFoundException : Exception
 {
