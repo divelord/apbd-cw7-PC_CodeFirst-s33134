@@ -11,9 +11,9 @@ public class ComponentTypeConfiguration : IEntityTypeConfiguration<ComponentType
         builder.HasKey(x => x.Id);
         builder.Property(x => x.Abbreviation).IsRequired().HasMaxLength(30);
         builder.Property(x => x.Name).IsRequired().HasMaxLength(150);
-        
+
         builder.ToTable("ComponentTypes");
-        
+
         builder.HasData(
             new ComponentType { Id = 1, Abbreviation = "CPU", Name = "Processor" },
             new ComponentType { Id = 2, Abbreviation = "GPU", Name = "Graphics Card" },
