@@ -23,5 +23,18 @@ public class PcComponentConfiguration : IEntityTypeConfiguration<PcComponent>
             .OnDelete(DeleteBehavior.Cascade);
         
         builder.ToTable("PCComponents");
+        
+        builder.HasData(
+            new PcComponent { PCId = 1, ComponentCode = "INT-I7-12K", Amount = 1 },
+            new PcComponent { PCId = 1, ComponentCode = "NVD-RTX407", Amount = 1 },
+            new PcComponent { PCId = 1, ComponentCode = "MSI-D5-32G", Amount = 2 },
+    
+            new PcComponent { PCId = 2, ComponentCode = "INT-I7-12K", Amount = 1 },
+            new PcComponent { PCId = 2, ComponentCode = "MSI-D5-32G", Amount = 1 },
+    
+            new PcComponent { PCId = 3, ComponentCode = "INT-I7-12K", Amount = 1 },
+            new PcComponent { PCId = 3, ComponentCode = "NVD-RTX407", Amount = 2 },
+            new PcComponent { PCId = 3, ComponentCode = "MSI-D5-32G", Amount = 4 }
+        );
     }
 }

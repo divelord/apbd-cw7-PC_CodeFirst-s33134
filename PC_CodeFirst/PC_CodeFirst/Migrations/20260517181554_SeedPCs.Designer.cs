@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PC_CodeFirst.Data;
 
@@ -11,9 +12,11 @@ using PC_CodeFirst.Data;
 namespace PC_CodeFirst.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20260517181554_SeedPCs")]
+    partial class SeedPCs
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -244,56 +247,6 @@ namespace PC_CodeFirst.Migrations
                     b.HasIndex("ComponentCode");
 
                     b.ToTable("PCComponents", (string)null);
-
-                    b.HasData(
-                        new
-                        {
-                            PCId = 1,
-                            ComponentCode = "INT-I7-12K",
-                            Amount = 1
-                        },
-                        new
-                        {
-                            PCId = 1,
-                            ComponentCode = "NVD-RTX407",
-                            Amount = 1
-                        },
-                        new
-                        {
-                            PCId = 1,
-                            ComponentCode = "MSI-D5-32G",
-                            Amount = 2
-                        },
-                        new
-                        {
-                            PCId = 2,
-                            ComponentCode = "INT-I7-12K",
-                            Amount = 1
-                        },
-                        new
-                        {
-                            PCId = 2,
-                            ComponentCode = "MSI-D5-32G",
-                            Amount = 1
-                        },
-                        new
-                        {
-                            PCId = 3,
-                            ComponentCode = "INT-I7-12K",
-                            Amount = 1
-                        },
-                        new
-                        {
-                            PCId = 3,
-                            ComponentCode = "NVD-RTX407",
-                            Amount = 2
-                        },
-                        new
-                        {
-                            PCId = 3,
-                            ComponentCode = "MSI-D5-32G",
-                            Amount = 4
-                        });
                 });
 
             modelBuilder.Entity("PC_CodeFirst.Entities.Component", b =>

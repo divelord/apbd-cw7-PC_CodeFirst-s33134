@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PC_CodeFirst.Data;
 
@@ -11,9 +12,11 @@ using PC_CodeFirst.Data;
 namespace PC_CodeFirst.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20260517181439_SeedComponentTypes")]
+    partial class SeedComponentTypes
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -49,32 +52,6 @@ namespace PC_CodeFirst.Migrations
                     b.HasIndex("ComponentTypesId");
 
                     b.ToTable("Components", (string)null);
-
-                    b.HasData(
-                        new
-                        {
-                            Code = "INT-I7-12K",
-                            ComponentManufacturersId = 1,
-                            ComponentTypesId = 1,
-                            Description = "High performance desktop processor.",
-                            Name = "Intel Core i7-12700K"
-                        },
-                        new
-                        {
-                            Code = "NVD-RTX407",
-                            ComponentManufacturersId = 2,
-                            ComponentTypesId = 2,
-                            Description = "Next-gen gaming graphics card.",
-                            Name = "NVIDIA GeForce RTX 4070"
-                        },
-                        new
-                        {
-                            Code = "MSI-D5-32G",
-                            ComponentManufacturersId = 3,
-                            ComponentTypesId = 3,
-                            Description = "Ultra-fast 6000MHz RAM kit.",
-                            Name = "MSI Spatium DDR5 32GB"
-                        });
                 });
 
             modelBuilder.Entity("PC_CodeFirst.Entities.ComponentManufacturer", b =>
@@ -197,35 +174,6 @@ namespace PC_CodeFirst.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("PCs", (string)null);
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            CreatedAt = new DateTime(2026, 1, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Name = "Gaming Master Pro",
-                            Stock = 5,
-                            Warranty = 24,
-                            Weight = 12.5
-                        },
-                        new
-                        {
-                            Id = 2,
-                            CreatedAt = new DateTime(2026, 2, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Name = "Office Workstation",
-                            Stock = 10,
-                            Warranty = 12,
-                            Weight = 8.1999999999999993
-                        },
-                        new
-                        {
-                            Id = 3,
-                            CreatedAt = new DateTime(2026, 3, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Name = "Creator Studio X",
-                            Stock = 3,
-                            Warranty = 36,
-                            Weight = 14.1
-                        });
                 });
 
             modelBuilder.Entity("PC_CodeFirst.Entities.PcComponent", b =>
@@ -244,56 +192,6 @@ namespace PC_CodeFirst.Migrations
                     b.HasIndex("ComponentCode");
 
                     b.ToTable("PCComponents", (string)null);
-
-                    b.HasData(
-                        new
-                        {
-                            PCId = 1,
-                            ComponentCode = "INT-I7-12K",
-                            Amount = 1
-                        },
-                        new
-                        {
-                            PCId = 1,
-                            ComponentCode = "NVD-RTX407",
-                            Amount = 1
-                        },
-                        new
-                        {
-                            PCId = 1,
-                            ComponentCode = "MSI-D5-32G",
-                            Amount = 2
-                        },
-                        new
-                        {
-                            PCId = 2,
-                            ComponentCode = "INT-I7-12K",
-                            Amount = 1
-                        },
-                        new
-                        {
-                            PCId = 2,
-                            ComponentCode = "MSI-D5-32G",
-                            Amount = 1
-                        },
-                        new
-                        {
-                            PCId = 3,
-                            ComponentCode = "INT-I7-12K",
-                            Amount = 1
-                        },
-                        new
-                        {
-                            PCId = 3,
-                            ComponentCode = "NVD-RTX407",
-                            Amount = 2
-                        },
-                        new
-                        {
-                            PCId = 3,
-                            ComponentCode = "MSI-D5-32G",
-                            Amount = 4
-                        });
                 });
 
             modelBuilder.Entity("PC_CodeFirst.Entities.Component", b =>
